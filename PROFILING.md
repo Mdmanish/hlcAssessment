@@ -107,3 +107,14 @@ Decorate the function or script that you want to profile with the @profile decor
     @profile
     def my_function():
         # function code here
+
+
+To store memory profiler output in a file:
+
+    from django.conf import settings
+    import os
+
+    fp=open(os.path.join(settings.API_LOG_ROOT, "roster_django_application_"+settings.ENVIRONMENT+".log"),'w+')
+    @profile(stream=fp)
+    def my_function():
+        # function code here
